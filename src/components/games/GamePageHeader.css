@@ -1,0 +1,44 @@
+.game-page-header {
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-text-dim);
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: 0.3s;
+}
+
+.back-link:hover {
+  color: var(--color-text);
+  background: var(--color-surface-strong);
+}
+
+.game-page-title {
+  margin-top: 32px;
+}
+
+.game-page-category {
+  color: var(--color-text-faint);
+  letter-spacing: 2.5px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.game-page-title h1 {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  color: var(--color-text);
+}

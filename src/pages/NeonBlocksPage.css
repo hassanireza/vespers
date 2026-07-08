@@ -1,0 +1,90 @@
+.neon-blocks-layout {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 20px 6vw 100px;
+  justify-content: center;
+}
+
+.neon-blocks-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.tetris-canvas {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  background: #06090f;
+}
+
+.mobile-controls {
+  display: none;
+  gap: 10px;
+}
+
+.mobile-controls button {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.neon-blocks-panel {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stat-row {
+  display: flex;
+  gap: 14px;
+}
+
+.stat-card.small {
+  flex: 1;
+  padding: 14px;
+}
+
+.stat-card.small strong {
+  font-size: 1.4rem;
+}
+
+.preview-row {
+  display: flex;
+  gap: 14px;
+}
+
+.preview-box {
+  flex: 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.preview-box span {
+  font-size: 0.7rem;
+  color: var(--color-text-faint);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .mobile-controls {
+    display: flex;
+  }
+}

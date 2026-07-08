@@ -1,0 +1,152 @@
+.ttt-layout {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 20px 6vw 100px;
+  justify-content: center;
+}
+
+.ttt-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.ttt-status {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--color-text-dim);
+  min-height: 32px;
+}
+
+.ttt-status-final {
+  color: var(--color-text);
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  padding: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.ttt-cell {
+  background: rgba(233, 228, 216, 0.03);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  color: var(--color-text);
+}
+
+.ttt-cell:not(:disabled):hover {
+  background: rgba(233, 228, 216, 0.07);
+}
+
+.ttt-cell:disabled {
+  cursor: default;
+}
+
+.ttt-x {
+  color: var(--accent-purple);
+}
+
+.ttt-o {
+  color: var(--accent-blue);
+}
+
+.ttt-winning {
+  background: rgba(107, 127, 106, 0.18);
+  border-color: var(--accent-green);
+}
+
+.ttt-buttons {
+  width: 220px;
+}
+
+.ttt-panel {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.scoreboard div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.scoreboard strong {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--color-text);
+}
+
+.scoreboard small {
+  color: var(--color-text-faint);
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.difficulty-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.difficulty-btn {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: rgba(233, 228, 216, 0.03);
+  color: var(--color-text-dim);
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: 0.2s;
+}
+
+.difficulty-active {
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-weight: 600;
+  border-color: transparent;
+}
+
+.keybind-help p {
+  color: var(--color-text-dim);
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .ttt-board {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+
+  .ttt-cell {
+    font-size: 2rem;
+  }
+}

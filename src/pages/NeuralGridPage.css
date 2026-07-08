@@ -1,0 +1,128 @@
+.grid-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 40px;
+  padding: 20px 6vw 100px;
+  align-items: start;
+}
+
+.grid-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.life-grid-scroll {
+  max-width: 100%;
+  overflow: auto;
+  border-radius: var(--radius-md);
+  background: #050607;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.life-grid {
+  display: grid;
+  gap: 2px;
+}
+
+.life-cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background: rgba(233, 228, 216, 0.045);
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.15s;
+}
+
+.life-cell:hover {
+  background: rgba(79, 107, 115, 0.4);
+}
+
+.life-cell-alive {
+  background: var(--accent-blue);
+  box-shadow: 0 0 6px rgba(79, 107, 115, 0.65);
+}
+
+.grid-buttons {
+  flex-direction: row;
+  width: 100%;
+  max-width: 480px;
+}
+
+.grid-panel {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stat-row {
+  display: flex;
+  gap: 14px;
+}
+
+.stat-card.small {
+  flex: 1;
+  padding: 14px;
+}
+
+.stat-card.small strong {
+  font-size: 1.4rem;
+}
+
+.stat-card input[type="range"] {
+  margin-top: 14px;
+  width: 100%;
+  accent-color: var(--accent-blue);
+}
+
+.speed-label {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-text-faint);
+  font-size: 0.75rem;
+}
+
+.pattern-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pattern-btn {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.keybind-help p {
+  color: var(--color-text-dim);
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-panel {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-buttons {
+    flex-direction: column;
+  }
+}

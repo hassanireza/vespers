@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 40px clamp(20px, 6vw, 96px) 48px;
+  margin-top: 40px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-faint);
+  font-size: 0.82rem;
+  letter-spacing: 0.4px;
+}
+
+.footer-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-credit svg {
+  opacity: 0.7;
+}
