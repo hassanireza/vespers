@@ -8,11 +8,11 @@
 A curated library of instant play, browser native games, engineered with a strict
 object oriented TypeScript core and a React 19 presentation layer.
 
-[![Deploy to GitHub Pages](https://img.shields.io/badge/deploy-github%20pages-67ffb7?style=for-the-badge&logo=github)](#deployment)
-[![Built with TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](#tech-stack)
-[![Built with React](https://img.shields.io/badge/React-19-59C3FF?style=for-the-badge&logo=react&logoColor=white)](#tech-stack)
-[![Bundled with Vite](https://img.shields.io/badge/Vite-8-A855F7?style=for-the-badge&logo=vite&logoColor=white)](#tech-stack)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
+[![Deploy to GitHub Pages](https://img.shields.io/badge/deploy-github%20pages-6b7f6a?style=for-the-badge&logo=github&logoColor=e9e4d8&labelColor=08090a)](#deployment)
+[![Built with TypeScript](https://img.shields.io/badge/TypeScript-5.x-4f6b73?style=for-the-badge&logo=typescript&logoColor=e9e4d8&labelColor=08090a)](#tech-stack)
+[![Built with React](https://img.shields.io/badge/React-19-7c6a5a?style=for-the-badge&logo=react&logoColor=e9e4d8&labelColor=08090a)](#tech-stack)
+[![Bundled with Vite](https://img.shields.io/badge/Vite-8-a8926a?style=for-the-badge&logo=vite&logoColor=e9e4d8&labelColor=08090a)](#tech-stack)
+[![License: MIT](https://img.shields.io/badge/License-MIT-8a7050?style=for-the-badge&labelColor=08090a)](./LICENSE)
 
 </div>
 
@@ -91,9 +91,9 @@ src/
   newcomers to a mathematically unbeatable minimax player.
 - **Simulation speed control and pattern presets** in Abyssal Bloom, including
   the classic glider gun.
-- **Client side routing** with `react-router-dom`, using a hash based router
-  so the production build works flawlessly on GitHub Pages with zero server
-  configuration.
+- **Client side routing** with `react-router-dom`, using a browser router so
+  every game has a clean, shareable URL, backed by a GitHub Pages fallback
+  page for deep links.
 - **Accessible by default.** Semantic landmarks, skip links, ARIA labelling
   on every interactive board cell, and full keyboard support in Reliquary.
 - **Responsive across devices.** Touch controls automatically appear for
@@ -113,7 +113,7 @@ src/
 | UI Framework | React 19 (function components, hooks) |
 | Language | TypeScript 5, strict mode |
 | Build Tool | Vite 8 |
-| Routing | React Router 7 (Hash Router) |
+| Routing | React Router 7 (Browser Router) |
 | Linting | oxlint |
 | CI/CD | GitHub Actions to GitHub Pages |
 
@@ -178,12 +178,14 @@ To enable it on your own fork:
 1. Push this repository to GitHub.
 2. Open **Settings → Pages** and set **Source** to **GitHub Actions**.
 3. Push to `main`. The site will be live at
-   `https://hassanireza.github.io/vespers/#/` within a couple
+   `https://hassanireza.github.io/vespers/` within a couple
    of minutes.
 
-The Vite config uses a relative `base: "./"`, and the app uses a
-`HashRouter`, so no additional path configuration is required regardless of
-the repository name.
+The Vite config uses an absolute `base: "/vespers/"`, and the app uses a
+`Browser Router` with a matching `basename`, so clean URLs like
+`/vespers/games/covenant` work directly. A `public/404.html` fallback
+handles GitHub Pages' static hosting so deep links and page refreshes
+resolve correctly.
 
 ---
 

@@ -1,55 +1,51 @@
-<svg width="900" height="480" viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Verdana, Arial, sans-serif">
+<svg width="900" height="480" viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="'EB Garamond', Georgia, serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#050816"/>
-      <stop offset="100%" stop-color="#0a1128"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#67ffb7"/>
-      <stop offset="100%" stop-color="#59c3ff"/>
+      <stop offset="0%" stop-color="#08090a"/>
+      <stop offset="100%" stop-color="#0c0e0f"/>
     </linearGradient>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#67ffb7"/>
+      <path d="M0,0 L0,6 L9,3 z" fill="#a8926a"/>
     </marker>
   </defs>
 
   <rect width="900" height="480" fill="url(#bg)" rx="16"/>
 
-  <text x="450" y="36" fill="#ffffff" font-size="20" font-weight="bold" text-anchor="middle">Vespers, System Architecture</text>
+  <text x="450" y="36" fill="#e9e4d8" font-size="20" font-weight="600" font-style="italic" text-anchor="middle">Vespers, System Architecture</text>
 
-  <rect x="40" y="70" width="820" height="70" rx="14" fill="#101a33" stroke="#67ffb7" stroke-width="1.5"/>
-  <text x="450" y="100" fill="#67ffb7" font-size="14" font-weight="bold" text-anchor="middle">Presentation Layer</text>
-  <text x="450" y="122" fill="#c9d3e6" font-size="12" text-anchor="middle">React 19 Function Components + React Router (HashRouter) + CSS Modules</text>
+  <rect x="40" y="70" width="820" height="70" rx="14" fill="#101214" stroke="rgba(233, 228, 216, 0.2)" stroke-width="1.5"/>
+  <text x="450" y="100" fill="#e9e4d8" font-size="14" font-weight="600" text-anchor="middle">Presentation Layer</text>
+  <text x="450" y="122" fill="rgba(233, 228, 216, 0.68)" font-size="12" text-anchor="middle">React 19 Function Components + React Router (Browser Router) + CSS Modules</text>
 
-  <line x1="450" y1="140" x2="450" y2="170" stroke="#67ffb7" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="140" x2="450" y2="170" stroke="#a8926a" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="40" y="170" width="820" height="70" rx="14" fill="#101a33" stroke="#7d67ff" stroke-width="1.5"/>
-  <text x="450" y="200" fill="#a58bff" font-size="14" font-weight="bold" text-anchor="middle">Engine Layer, OOP Core</text>
-  <text x="450" y="222" fill="#c9d3e6" font-size="12" text-anchor="middle">GameEngine&lt;T&gt; (abstract) subscribed to by React via a pub / sub bridge</text>
+  <rect x="40" y="170" width="820" height="70" rx="14" fill="#101214" stroke="#a8926a" stroke-width="1.5"/>
+  <text x="450" y="200" fill="#a8926a" font-size="14" font-weight="600" text-anchor="middle">Engine Layer, OOP Core</text>
+  <text x="450" y="222" fill="rgba(233, 228, 216, 0.68)" font-size="12" text-anchor="middle">GameEngine&lt;T&gt; (abstract) subscribed to by React via a pub / sub bridge</text>
 
-  <line x1="450" y1="240" x2="450" y2="270" stroke="#7d67ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="240" x2="450" y2="270" stroke="#a8926a" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="60" y="270" width="240" height="90" rx="14" fill="#0c1122" stroke="#59c3ff" stroke-width="1.5"/>
-  <text x="180" y="298" fill="#59c3ff" font-size="13" font-weight="bold" text-anchor="middle">TetrisEngine</text>
-  <text x="180" y="318" fill="#9fb0d1" font-size="11" text-anchor="middle">Reliquary</text>
-  <text x="180" y="336" fill="#9fb0d1" font-size="11" text-anchor="middle">Hold, next queue,</text>
-  <text x="180" y="350" fill="#9fb0d1" font-size="11" text-anchor="middle">level speed curve</text>
+  <rect x="60" y="270" width="240" height="90" rx="14" fill="#0b0c0d" stroke="#7c6a5a" stroke-width="1.5"/>
+  <text x="180" y="298" fill="#7c6a5a" font-size="13" font-weight="600" text-anchor="middle">TetrisEngine</text>
+  <text x="180" y="318" fill="rgba(233, 228, 216, 0.68)" font-size="11" text-anchor="middle">Reliquary</text>
+  <text x="180" y="336" fill="rgba(233, 228, 216, 0.42)" font-size="11" text-anchor="middle">Hold, next queue,</text>
+  <text x="180" y="350" fill="rgba(233, 228, 216, 0.42)" font-size="11" text-anchor="middle">level speed curve</text>
 
-  <rect x="330" y="270" width="240" height="90" rx="14" fill="#0c1122" stroke="#59c3ff" stroke-width="1.5"/>
-  <text x="450" y="298" fill="#59c3ff" font-size="13" font-weight="bold" text-anchor="middle">TicTacToeEngine</text>
-  <text x="450" y="318" fill="#9fb0d1" font-size="11" text-anchor="middle">Covenant</text>
-  <text x="450" y="336" fill="#9fb0d1" font-size="11" text-anchor="middle">Minimax AI,</text>
-  <text x="450" y="350" fill="#9fb0d1" font-size="11" text-anchor="middle">3 difficulty tiers</text>
+  <rect x="330" y="270" width="240" height="90" rx="14" fill="#0b0c0d" stroke="#6b7f6a" stroke-width="1.5"/>
+  <text x="450" y="298" fill="#6b7f6a" font-size="13" font-weight="600" text-anchor="middle">TicTacToeEngine</text>
+  <text x="450" y="318" fill="rgba(233, 228, 216, 0.68)" font-size="11" text-anchor="middle">Covenant</text>
+  <text x="450" y="336" fill="rgba(233, 228, 216, 0.42)" font-size="11" text-anchor="middle">Minimax AI,</text>
+  <text x="450" y="350" fill="rgba(233, 228, 216, 0.42)" font-size="11" text-anchor="middle">3 difficulty tiers</text>
 
-  <rect x="600" y="270" width="240" height="90" rx="14" fill="#0c1122" stroke="#59c3ff" stroke-width="1.5"/>
-  <text x="720" y="298" fill="#59c3ff" font-size="13" font-weight="bold" text-anchor="middle">LifeEngine</text>
-  <text x="720" y="318" fill="#9fb0d1" font-size="11" text-anchor="middle">Abyssal Bloom</text>
-  <text x="720" y="336" fill="#9fb0d1" font-size="11" text-anchor="middle">Conway simulation,</text>
-  <text x="720" y="350" fill="#9fb0d1" font-size="11" text-anchor="middle">speed control, seed patterns</text>
+  <rect x="600" y="270" width="240" height="90" rx="14" fill="#0b0c0d" stroke="#4f6b73" stroke-width="1.5"/>
+  <text x="720" y="298" fill="#4f6b73" font-size="13" font-weight="600" text-anchor="middle">LifeEngine</text>
+  <text x="720" y="318" fill="rgba(233, 228, 216, 0.68)" font-size="11" text-anchor="middle">Abyssal Bloom</text>
+  <text x="720" y="336" fill="rgba(233, 228, 216, 0.42)" font-size="11" text-anchor="middle">Conway simulation,</text>
+  <text x="720" y="350" fill="rgba(233, 228, 216, 0.42)" font-size="11" text-anchor="middle">speed control, seed patterns</text>
 
-  <line x1="450" y1="360" x2="450" y2="390" stroke="#59c3ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="360" x2="450" y2="390" stroke="#8a7050" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="40" y="390" width="820" height="60" rx="14" fill="#101a33" stroke="#ffd166" stroke-width="1.5"/>
-  <text x="450" y="415" fill="#ffd166" font-size="14" font-weight="bold" text-anchor="middle">Delivery Layer</text>
-  <text x="450" y="435" fill="#c9d3e6" font-size="12" text-anchor="middle">Vite production build to /dist, GitHub Actions CI/CD, GitHub Pages hosting</text>
+  <rect x="40" y="390" width="820" height="60" rx="14" fill="#101214" stroke="#8a7050" stroke-width="1.5"/>
+  <text x="450" y="415" fill="#8a7050" font-size="14" font-weight="600" text-anchor="middle">Delivery Layer</text>
+  <text x="450" y="435" fill="rgba(233, 228, 216, 0.68)" font-size="12" text-anchor="middle">Vite production build to /dist, GitHub Actions CI/CD, GitHub Pages hosting</text>
 </svg>
