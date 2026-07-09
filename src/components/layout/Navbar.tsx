@@ -6,7 +6,7 @@ export function Navbar(): ReactElement {
   return (
     <nav className="nav container">
       <Link to="/" className="logo">
-        <img src={`${import.meta.env.BASE_URL}favicon.png`} alt="" className="logo-icon" />
+        <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" className="logo-icon" />
         <span>Vespers</span>
       </Link>
 
@@ -15,7 +15,7 @@ export function Navbar(): ReactElement {
         <Link to="/#about">About</Link>
         <a
           className="nav-github"
-          href="https://github.com/hassanireza/pixelRealms"
+          href="https://github.com/hassanireza/vespers"
           target="_blank"
           rel="noreferrer"
           aria-label="View source on GitHub"

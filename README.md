@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="./public/logo.png" alt="Pixel Realms Studio" width="120" />
+<img src="./public/favicon.svg" alt="Vespers" width="72" />
 
-# Pixel Realms Studio
+# Vespers
 
 **No downloads. Pure play.**
 A curated library of instant play, browser native games, engineered with a strict
@@ -20,7 +20,7 @@ object oriented TypeScript core and a React 19 presentation layer.
 
 ## Overview
 
-Pixel Realms Studio is a full migration of a static, vanilla JavaScript arcade
+Vespers is a full migration of a static, vanilla JavaScript arcade
 site into a production grade, type safe, component driven single page
 application. Every game runs on its own object oriented engine class,
 completely decoupled from the rendering layer, so the same simulation code
@@ -31,9 +31,9 @@ The project ships with three playable titles:
 
 | Game | Genre | Engine Class | Signature Upgrade |
 |---|---|---|---|
-| **Neon Blocks** | Falling block puzzle | `TetrisEngine` | Hold slot, next piece preview, dynamic level speed curve |
-| **Tic Tac Toe** | Strategy | `TicTacToeEngine` | Minimax AI with Easy, Normal, and Impossible difficulty tiers |
-| **Neural Grid** | Cellular automaton | `LifeEngine` | Live speed control and one click seed patterns (glider, pulsar, glider gun) |
+| **Reliquary** | Falling block puzzle | `TetrisEngine` | Hold slot, next piece preview, dynamic level speed curve |
+| **Covenant** | Strategy | `TicTacToeEngine` | Minimax AI with Easy, Normal, and Impossible difficulty tiers |
+| **Abyssal Bloom** | Cellular automaton | `LifeEngine` | Live speed control and one click seed patterns (glider, pulsar, glider gun) |
 
 ---
 
@@ -63,9 +63,9 @@ src/
 ├── engine/                  Framework agnostic OOP game engines
 │   ├── GameEngine.ts        Abstract base class (lifecycle + pub/sub)
 │   ├── SoundManager.ts      WebAudio backed sound effect utility
-│   ├── TetrisEngine.ts      Neon Blocks simulation
-│   ├── TicTacToeEngine.ts   Tic Tac Toe simulation + minimax AI
-│   └── LifeEngine.ts        Neural Grid (Conway's Game of Life) simulation
+│   ├── TetrisEngine.ts      Reliquary simulation
+│   ├── TicTacToeEngine.ts   Covenant simulation + minimax AI
+│   └── LifeEngine.ts        Abyssal Bloom (Conway's Game of Life) simulation
 ├── components/
 │   ├── layout/               Navbar, Footer
 │   ├── home/                 Hero, Carousel, GameCard, Mission
@@ -85,19 +85,19 @@ src/
 - **Fully typed.** Zero `any` in application code, strict TypeScript
   compiler options, and shared discriminated types for board state, engine
   state, and difficulty levels.
-- **Hold and preview queue** in Neon Blocks, a mechanic entirely new to this
+- **Hold and preview queue** in Reliquary, a mechanic entirely new to this
   migration that was not present in the original implementation.
-- **Three tier AI difficulty** in Tic Tac Toe, from a forgiving opponent for
+- **Three tier AI difficulty** in Covenant, from a forgiving opponent for
   newcomers to a mathematically unbeatable minimax player.
-- **Simulation speed control and pattern presets** in Neural Grid, including
+- **Simulation speed control and pattern presets** in Abyssal Bloom, including
   the classic glider gun.
 - **Client side routing** with `react-router-dom`, using a hash based router
   so the production build works flawlessly on GitHub Pages with zero server
   configuration.
 - **Accessible by default.** Semantic landmarks, skip links, ARIA labelling
-  on every interactive board cell, and full keyboard support in Neon Blocks.
+  on every interactive board cell, and full keyboard support in Reliquary.
 - **Responsive across devices.** Touch controls automatically appear for
-  Neon Blocks on small viewports, and every layout reflows gracefully down
+  Reliquary on small viewports, and every layout reflows gracefully down
   to mobile widths.
 - **Continuous delivery.** Every push to `main` is type checked, linted,
   built, and deployed to GitHub Pages automatically.
@@ -131,8 +131,8 @@ src/
 ### Installation
 
 ```bash
-git clone https://github.com/<your-username>/pixel-realms-studio.git
-cd pixel-realms-studio
+git clone https://github.com/hassanireza/vespers.git
+cd vespers
 npm install
 ```
 
@@ -178,7 +178,7 @@ To enable it on your own fork:
 1. Push this repository to GitHub.
 2. Open **Settings → Pages** and set **Source** to **GitHub Actions**.
 3. Push to `main`. The site will be live at
-   `https://<your-username>.github.io/<repository-name>/` within a couple
+   `https://hassanireza.github.io/vespers/#/` within a couple
    of minutes.
 
 The Vite config uses a relative `base: "./"`, and the app uses a
@@ -190,7 +190,7 @@ the repository name.
 ## Controls Reference
 
 <table>
-<tr><th>Neon Blocks</th><th>Tic Tac Toe</th><th>Neural Grid</th></tr>
+<tr><th>Reliquary</th><th>Covenant</th><th>Abyssal Bloom</th></tr>
 <tr valign="top">
 <td>
 
@@ -226,11 +226,11 @@ Stamp a glider, pulsar, or glider gun
 This codebase replaces a vanilla HTML, CSS, and JavaScript implementation.
 Every game's rules and scoring behaviour were preserved and then extended:
 
-- **Neon Blocks** kept its original scoring curve and piece set, and gained
+- **Reliquary** kept its original scoring curve and piece set, and gained
   a hold slot, a next piece preview, and a smoother level based speed ramp.
-- **Tic Tac Toe** kept its original minimax algorithm and extended it with
+- **Covenant** kept its original minimax algorithm and extended it with
   three selectable difficulty tiers and a running scoreboard.
-- **Neural Grid** kept the standard Conway ruleset and added an adjustable
+- **Abyssal Bloom** kept the standard Conway ruleset and added an adjustable
   simulation speed and a library of classic seed patterns.
 
 All DOM manipulation was replaced with declarative React rendering driven

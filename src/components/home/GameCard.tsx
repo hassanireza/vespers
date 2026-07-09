@@ -37,15 +37,17 @@ export function GameCard({ game, active }: GameCardProps): ReactElement {
 /** Sparse line-art motifs standing in for each rite, drawn in a single muted stroke. */
 function glyphFor(id: string): ReactElement {
   if (id === "neon-blocks") {
-    // Reliquary: a vessel built of settling, unequal layers.
+    // Reliquary: settling blocks of unequal weight, stacked like masonry.
     return (
-      <svg viewBox="0 0 100 120" width="100" height="120" aria-hidden="true">
+      <svg viewBox="0 0 100 100" width="100" height="100" aria-hidden="true">
         <g fill="none" stroke="currentColor" strokeWidth="1" opacity="0.85">
-          <path d="M32 18h36l-4 84a4 4 0 0 1-4 4H40a4 4 0 0 1-4-4z" />
-          <line x1="26" y1="18" x2="74" y2="18" strokeLinecap="round" />
-          <line x1="34" y1="40" x2="66" y2="40" opacity="0.5" />
-          <line x1="32" y1="64" x2="68" y2="64" opacity="0.5" />
-          <line x1="34" y1="88" x2="66" y2="88" opacity="0.5" />
+          <rect x="30" y="14" width="40" height="14" />
+          <rect x="18" y="30" width="30" height="14" />
+          <rect x="50" y="30" width="26" height="14" opacity="0.7" />
+          <rect x="24" y="46" width="52" height="14" opacity="0.55" />
+          <rect x="34" y="62" width="20" height="14" opacity="0.7" />
+          <rect x="56" y="62" width="18" height="14" opacity="0.4" />
+          <line x1="14" y1="82" x2="86" y2="82" strokeWidth="0.6" opacity="0.4" />
         </g>
       </svg>
     );
