@@ -1,5 +1,5 @@
 :root {
-  /* Ground: near-black, unlit water, wet stone */
+  
   --color-bg: #08090a;
   --color-bg-alt: #0c0e0f;
   --color-surface: rgba(233, 228, 216, 0.045);
@@ -7,17 +7,15 @@
   --color-border: rgba(233, 228, 216, 0.1);
   --color-border-strong: rgba(233, 228, 216, 0.2);
 
-  /* Ink: bone, salt, pale skin under low light */
   --color-text: #e9e4d8;
   --color-text-dim: rgba(233, 228, 216, 0.68);
   --color-text-faint: rgba(233, 228, 216, 0.42);
 
-  /* Three muted rites, oxidized rather than lit */
-  --accent-green: #6b7f6a;   /* verdigris -- Covenant */
-  --accent-purple: #7c6a5a;  /* wet leather / rust -- Reliquary */
-  --accent-blue: #4f6b73;    /* deep tide -- Abyssal Bloom */
-  --accent-pink: #8a7050;    /* oxidized brass, sparing use */
-  --accent-yellow: #a8926a;  /* salt / bone highlight */
+  --accent-green: #6b7f6a;   
+  --accent-purple: #7c6a5a;  
+  --accent-blue: #4f6b73;    
+  --accent-pink: #8a7050;    
+  --accent-yellow: #a8926a;  
 
   --gradient-primary: linear-gradient(135deg, #4f6b73, #6b7f6a);
   --gradient-hero: linear-gradient(160deg, #23201b, #10161a 60%, #08090a);

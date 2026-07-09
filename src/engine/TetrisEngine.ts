@@ -101,15 +101,6 @@ function rotateShape(shape: Shape): Shape {
   return rotated;
 }
 
-/**
- * TetrisEngine
- *
- * Fully self-contained falling block puzzle engine (the game formerly
- * known as "Reliquary"). Ported from the original vanilla canvas
- * implementation into a typed, framework agnostic class with three
- * upgrades over the original: a next-piece preview, a hold slot, and
- * a progressive level/speed curve driven by cleared lines.
- */
 export class TetrisEngine extends GameEngine<TetrisState> {
   private board: Board = createEmptyBoard();
   private current: ActivePiece;
@@ -339,7 +330,6 @@ export class TetrisEngine extends GameEngine<TetrisState> {
     }
   }
 
-  /** Swaps the active piece into the hold slot. Limited to once per drop. */
   public holdPiece(): void {
     if (!this.running || this.paused || !this.canHold) return;
 

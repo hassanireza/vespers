@@ -34,10 +34,9 @@ export function GameCard({ game, active }: GameCardProps): ReactElement {
   );
 }
 
-/** Sparse line-art motifs standing in for each rite, drawn in a single muted stroke. */
 function glyphFor(id: string): ReactElement {
   if (id === "neon-blocks") {
-    // Reliquary: settling blocks of unequal weight, stacked like masonry.
+    
     return (
       <svg viewBox="0 0 100 100" width="100" height="100" aria-hidden="true">
         <g fill="none" stroke="currentColor" strokeWidth="1" opacity="0.85">
@@ -54,7 +53,7 @@ function glyphFor(id: string): ReactElement {
   }
 
   if (id === "tic-tac-toe") {
-    // Covenant: two marks bound by a shared, faded lattice.
+    
     return (
       <svg viewBox="0 0 100 100" width="100" height="100" aria-hidden="true">
         <g stroke="currentColor" strokeWidth="0.75" opacity="0.35">
@@ -72,7 +71,6 @@ function glyphFor(id: string): ReactElement {
     );
   }
 
-  // Abyssal Bloom: rings spreading outward from a single seed.
   return (
     <svg viewBox="0 0 100 100" width="110" height="110" aria-hidden="true">
       <g fill="none" stroke="currentColor" strokeWidth="0.9">

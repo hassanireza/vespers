@@ -24,9 +24,9 @@ export function App(): ReactElement {
       <div id="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/games/neon-blocks" element={<NeonBlocksPage />} />
-          <Route path="/games/tic-tac-toe" element={<TicTacToePage />} />
-          <Route path="/games/neural-grid" element={<NeuralGridPage />} />
+          <Route path="/games/reliquary" element={<NeonBlocksPage />} />
+          <Route path="/games/covenant" element={<TicTacToePage />} />
+          <Route path="/games/abyssal-bloom" element={<NeuralGridPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

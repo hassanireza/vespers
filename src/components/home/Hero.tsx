@@ -1,16 +1,46 @@
 import type { ReactElement } from "react";
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GAMES } from "../../data/games";
+import { LifeEngine, type LifeState } from "../../engine/LifeEngine";
 import "./Hero.css";
+
+const DEMO_ROWS = 16;
+const DEMO_COLS = 12;
+const DEMO_SPEED_MS = 260;
 
 export function Hero(): ReactElement {
   const navigate = useNavigate();
+  const engineRef = useRef<LifeEngine | null>(null);
+  const [demoState, setDemoState] = useState<LifeState | null>(null);
 
   const handleSurpriseMe = useCallback(() => {
     const randomGame = GAMES[Math.floor(Math.random() * GAMES.length)];
     navigate(randomGame.route);
   }, [navigate]);
+
+  useEffect(() => {
+    const engine = new LifeEngine(DEMO_ROWS, DEMO_COLS);
+    engineRef.current = engine;
+    engine.setSpeed(DEMO_SPEED_MS);
+
+    const unsubscribe = engine.subscribe(setDemoState);
+    engine.start();
+    engine.play();
+
+    const reseed = window.setInterval(() => {
+      if (engine.getState().population < 6) {
+        engine.randomize(0.32);
+        engine.play();
+      }
+    }, 4000);
+
+    return () => {
+      window.clearInterval(reseed);
+      unsubscribe();
+      engine.destroy();
+    };
+  }, []);
 
   return (
     <header className="hero">
@@ -43,22 +73,28 @@ export function Hero(): ReactElement {
 
         <div className="hero-frame" aria-hidden="true">
           <div className="hero-frame-inner">
-            <svg className="hero-figure" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <radialGradient id="figureFade" cx="50%" cy="30%" r="65%">
-                  <stop offset="0%" stopColor="#e9e4d8" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="#e9e4d8" stopOpacity="0" />
-                </radialGradient>
-              </defs>
-              <ellipse cx="100" cy="70" rx="90" ry="90" fill="url(#figureFade)" />
-              <path
-                d="M100 40c14 0 24 12 24 27 0 13-7 23-16 27 22 6 38 22 42 46 2 12 2 26 2 40H48c0-14 0-28 2-40 4-24 20-40 42-46-9-4-16-14-16-27 0-15 10-27 24-27z"
-                fill="none"
-                stroke="#e9e4d8"
-                strokeWidth="0.6"
-                opacity="0.35"
-              />
-            </svg>
+            <div className="hero-screen">
+              <div className="hero-screen-bar">
+                <span className="hero-screen-dot" />
+                <span className="hero-screen-dot" />
+                <span className="hero-screen-dot" />
+                <span className="hero-screen-label">abyssal-bloom.demo</span>
+              </div>
+
+              <div
+                className="hero-screen-grid"
+                style={{ gridTemplateColumns: `repeat(${DEMO_COLS}, 1fr)` }}
+              >
+                {demoState?.grid.flat().map((cell, index) => (
+                  <span key={index} className={`hero-cell${cell ? " alive" : ""}`} />
+                ))}
+              </div>
+
+              <div className="hero-screen-caption">
+                <span>Abyssal Bloom</span>
+                <span>Rite III: Shedding</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

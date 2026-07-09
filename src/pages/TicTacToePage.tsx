@@ -32,7 +32,7 @@ export function TicTacToePage(): ReactElement {
 
   return (
     <>
-      <GamePageHeader title="Covenant" category="Rite II \u2014 Communion" />
+      <GamePageHeader title="Covenant" category="Rite II: Communion" />
 
       <section className="ttt-layout container">
         <div className="ttt-stage">

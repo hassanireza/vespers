@@ -35,15 +35,6 @@ interface MinimaxResult {
   score: number;
 }
 
-/**
- * TicTacToeEngine
- *
- * Ports the original minimax based AI to a typed class and adds a
- * difficulty setting. "Impossible" plays perfect minimax (as the
- * original always did), "Normal" occasionally settles for a good but
- * not optimal move, and "Easy" mostly plays randomly so newer players
- * can actually win. Session scoreboard tracking is a new addition.
- */
 export class TicTacToeEngine extends GameEngine<TicTacToeState> {
   private board: Board = Array(9).fill(null);
   private readonly human: Player = "O";
@@ -161,7 +152,7 @@ export class TicTacToeEngine extends GameEngine<TicTacToeState> {
     const empty = this.emptyIndices(this.board);
 
     if (this.difficulty === "easy") {
-      // Mostly random, but still blocks an immediate loss occasionally.
+      
       if (Math.random() < 0.75) {
         return empty[Math.floor(Math.random() * empty.length)];
       }

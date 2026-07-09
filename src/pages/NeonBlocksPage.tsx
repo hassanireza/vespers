@@ -80,7 +80,7 @@ export function NeonBlocksPage(): ReactElement {
       engine.destroy();
       sound.dispose();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [engine]);
 
   useEffect(() => {
@@ -189,7 +189,7 @@ export function NeonBlocksPage(): ReactElement {
 
   return (
     <>
-      <GamePageHeader title="Reliquary" category="Rite I \u2014 Accumulation" />
+      <GamePageHeader title="Reliquary" category="Rite I: Accumulation" />
 
       <section className="neon-blocks-layout container">
         <div className="neon-blocks-stage">

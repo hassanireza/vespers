@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react";
 // project subpath (https://<user>.github.io/<repo>/) as well as from
 // a custom domain root, without any extra configuration.
 export default defineConfig({
-  base: "./",
+  base: "/vespers/",
   plugins: [react()],
   build: {
     outDir: "dist",

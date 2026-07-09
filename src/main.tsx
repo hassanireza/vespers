@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
 import "./styles/global.css";
 import "./styles/sections.css";
@@ -14,8 +14,8 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <HashRouter>
+    <BrowserRouter basename="/vespers">
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </StrictMode>,
 );

@@ -1,12 +1,3 @@
-/**
- * SoundManager
- *
- * Small wrapper around the WebAudio API used to play short synthesized
- * square wave beeps for in-game feedback (drop, rotate, clear, game over).
- * Centralising this logic avoids duplicating raw AudioContext handling
- * across every game engine and lets the user mute all sound effects
- * from a single toggle.
- */
 export class SoundManager {
   private context: AudioContext | null = null;
   private enabled = true;
@@ -53,7 +44,7 @@ export class SoundManager {
       oscillator.start();
       oscillator.stop(ctx.currentTime + duration);
     } catch {
-      // Audio is a progressive enhancement; failures are silently ignored.
+      
     }
   }
 

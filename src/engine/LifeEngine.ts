@@ -22,16 +22,6 @@ function buildEmptyGrid(rows: number, cols: number): LifeGrid {
   return Array.from({ length: rows }, () => new Array(cols).fill(0));
 }
 
-/**
- * LifeEngine
- *
- * Conway's Game of Life, the simulation behind "Abyssal Bloom". Ported
- * from direct DOM manipulation to a pure data engine driven by
- * setTimeout, matching the original's timing behaviour. Two upgrades
- * over the original: a speed slider (exposed as speedMs) and a small
- * library of classic seed patterns (glider, pulsar, Gosper glider gun)
- * that can be stamped onto the board.
- */
 export class LifeEngine extends GameEngine<LifeState> {
   private grid: LifeGrid;
   private rows: number;
@@ -184,7 +174,6 @@ export class LifeEngine extends GameEngine<LifeState> {
     this.generation += 1;
   }
 
-  /** Stamps a well known seed pattern centred on the board. */
   public stampPattern(pattern: LifePattern): void {
     this.stop();
     this.playing = false;

@@ -4,11 +4,6 @@ import { GamePageHeader } from "../components/games/GamePageHeader";
 import { LifeEngine, type LifePattern, type LifeState } from "../engine/LifeEngine";
 import "./NeuralGridPage.css";
 
-// Fixed cell size in pixels, mirroring the original vanilla implementation.
-// Grid dimensions are then derived from the available viewport width/height
-// so the board always renders at a definite, non-zero size instead of
-// relying on fractional ("1fr") columns, which collapse to 0px when the
-// grid items (empty <button> cells) have no intrinsic content size.
 const DESKTOP_CELL_SIZE = 20;
 const MOBILE_CELL_SIZE = 14;
 const CELL_GAP = 2;
@@ -50,7 +45,7 @@ export function NeuralGridPage(): ReactElement {
   const [dimensions] = useState(computeGridDimensions);
   const engine = useMemo(
     () => new LifeEngine(dimensions.rows, dimensions.cols),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     [],
   );
   const [state, setState] = useState<LifeState>(engine.getState());
@@ -68,7 +63,7 @@ export function NeuralGridPage(): ReactElement {
 
   return (
     <>
-      <GamePageHeader title="Abyssal Bloom" category="Rite III \u2014 Shedding" />
+      <GamePageHeader title="Abyssal Bloom" category="Rite III: Shedding" />
 
       <section className="grid-layout container">
         <div className="grid-stage">

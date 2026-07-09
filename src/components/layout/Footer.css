@@ -1,11 +1,11 @@
-.footer {
+footer.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
   padding: 40px clamp(20px, 6vw, 96px) 48px;
-  margin-top: 40px;
+  margin-top: 64px;
   border-top: 1px solid var(--color-border);
   color: var(--color-text-faint);
   font-size: 0.82rem;
