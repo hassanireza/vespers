@@ -12,7 +12,6 @@ object oriented TypeScript core and a React 19 presentation layer.
 [![Built with TypeScript](https://img.shields.io/badge/TypeScript-5.x-4f6b73?style=for-the-badge&logo=typescript&logoColor=e9e4d8&labelColor=08090a)](#tech-stack)
 [![Built with React](https://img.shields.io/badge/React-19-7c6a5a?style=for-the-badge&logo=react&logoColor=e9e4d8&labelColor=08090a)](#tech-stack)
 [![Bundled with Vite](https://img.shields.io/badge/Vite-8-a8926a?style=for-the-badge&logo=vite&logoColor=e9e4d8&labelColor=08090a)](#tech-stack)
-[![License: MIT](https://img.shields.io/badge/License-MIT-8a7050?style=for-the-badge&labelColor=08090a)](./LICENSE)
 
 </div>
 
