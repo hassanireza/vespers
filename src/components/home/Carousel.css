@@ -1,92 +1,255 @@
-.carousel-wrapper {
+/* ------------------------------------------------------------------
+   The Rites carousel.
+   A native scroll-snap track (momentum, touch, trackpad for free) with
+   the neighbouring rites peeking in. Height is driven by the slide, not
+   a fixed pixel value, so the whole section fits a single screen.
+------------------------------------------------------------------- */
+.carousel {
   position: relative;
-  overflow: hidden;
   width: 100%;
-  padding: 40px 0 80px;
+  padding: 32px 0 64px;
+  container-type: inline-size;
 }
 
 .carousel-track {
+  --slide-gap: clamp(20px, 3cqw, 40px);
+  --slide-w: min(1080px, 92vw);
+  --slide-w: min(1080px, 100cqw - 2 * clamp(20px, 6cqw, 96px));
+
   position: relative;
-  height: 720px;
   display: flex;
-  justify-content: center;
+  gap: var(--slide-gap);
+  padding-block: 40px;
+  padding-inline: calc((100cqw - var(--slide-w)) / 2);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track.is-dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+  user-select: none;
+}
+
+.carousel-slide {
+  position: relative;
+  flex: 0 0 var(--slide-w);
+  min-width: 0;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.carousel-slide-content {
+  transition: opacity 0.6s ease;
+}
+
+.carousel-slide-content[inert] {
+  opacity: 0.32;
+}
+
+/* Lets a peeking slide be clicked or tapped to bring it to centre. */
+.carousel-peek {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ------------------------------ controls ------------------------------ */
+.carousel-controls {
+  display: flex;
   align-items: center;
+  gap: 24px;
+  width: min(1080px, 92vw);
+  width: min(1080px, 100cqw - 2 * clamp(20px, 6cqw, 96px));
+  margin: 8px auto 0;
 }
 
-.carousel-slot {
-  position: absolute;
-  width: min(520px, 90vw);
-  left: 50%;
-  top: 50%;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s;
+.carousel-arrows {
+  display: flex;
+  gap: 8px;
 }
 
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 64px;
-  height: 64px;
+.carousel-button {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
-  backdrop-filter: blur(24px);
+  color: var(--color-text-dim);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  transition: 0.35s;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
 }
 
-.nav-arrow:hover {
+.carousel-button:hover {
   background: var(--color-surface-strong);
-  transform: translateY(-50%) scale(1.08);
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
 }
 
-.nav-arrow svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--color-text-dim);
+.carousel-button svg {
+  width: 18px;
+  height: 18px;
 }
 
-.nav-arrow.left {
-  left: 2vw;
+.carousel-button:focus-visible,
+.rail-item:focus-visible {
+  outline: 1px solid var(--color-text-dim);
+  outline-offset: 3px;
 }
 
-.nav-arrow.right {
-  right: 2vw;
-}
-
-.carousel-dots {
+.carousel-rail {
+  flex: 1;
+  min-width: 0;
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: clamp(12px, 2.4cqw, 28px);
+  list-style: none;
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
+.carousel-rail li {
+  flex: 1;
+  min-width: 0;
+}
+
+.rail-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 0 6px;
   border: none;
-  background: var(--color-surface-strong);
+  background: none;
+  text-align: left;
+  color: var(--color-text-faint);
   cursor: pointer;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
-.dot-active {
-  width: 26px;
-  background: var(--gradient-primary);
+.rail-item:hover,
+.rail-item.is-active {
+  color: var(--color-text);
 }
 
-@media (max-width: 768px) {
-  .carousel-track {
-    height: 640px;
+.rail-track {
+  position: relative;
+  display: block;
+  height: 2px;
+  overflow: hidden;
+  background: var(--color-border-strong);
+}
+
+.rail-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-text);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.rail-fill.is-full {
+  transform: scaleX(1);
+}
+
+.rail-fill.is-timed {
+  animation: rail-fill linear forwards;
+}
+
+.rail-fill.is-timed[data-running="false"] {
+  animation-play-state: paused;
+}
+
+@keyframes rail-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.rail-label {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.rail-numeral {
+  min-width: 1.6em;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.rail-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ------------------------------ responsive ------------------------------ */
+@media (max-width: 899px) {
+  .carousel {
+    padding-bottom: 48px;
   }
 
-  .nav-arrow {
-    width: 48px;
-    height: 48px;
+  .carousel-track {
+    padding-block: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-track {
+    --slide-w: 88vw;
+    --slide-w: 88cqw;
+    --slide-gap: 14px;
+  }
+
+  .carousel-controls {
+    width: 88vw;
+    width: 88cqw;
+  }
+
+  .carousel-arrows {
+    display: none;
+  }
+
+  .carousel-controls {
+    gap: 16px;
+  }
+
+  .rail-title {
+    display: none;
+  }
+
+  .rail-numeral {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide-content {
+    transition: none;
   }
 }
